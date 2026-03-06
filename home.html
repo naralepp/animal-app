@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Animal App</title>
+
+<style>
+body {
+background:black;
+color:white;
+text-align:center;
+font-family:Arial;
+}
+
+img {
+width:80%;
+height:auto;
+margin-top:20px;
+}
+
+h1 {
+font-size:50px;
+}
+</style>
+</head>
+
+<body>
+
+<h1 id="animalName"></h1>
+
+<img id="animalImage">
+
+<audio id="animalSound"></audio>
+
+<script>
+
+const animals = [
+
+{
+name:"Dog",
+image:"https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg",
+sound:"https://www.soundjay.com/animal/dog-bark-01.mp3"
+},
+
+{
+name:"Cat",
+image:"https://upload.wikimedia.org/wikipedia/commons/3/3a/Cat03.jpg",
+sound:"https://www.soundjay.com/animal/cat-meow-01.mp3"
+},
+
+{
+name:"Cow",
+image:"https://upload.wikimedia.org/wikipedia/commons/0/0c/Cow_female_black_white.jpg",
+sound:"https://www.soundjay.com/animal/cow-moo1.mp3"
+},
+
+{
+name:"Lion",
+image:"https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg",
+sound:"https://www.soundjay.com/animal/lion-roar-01.mp3"
+}
+
+];
+
+let index = 0;
+
+function showAnimal(){
+
+let a = animals[index];
+
+document.getElementById("animalName").innerText = a.name;
+
+document.getElementById("animalImage").src = a.image;
+
+let sound = document.getElementById("animalSound");
+
+sound.src = a.sound;
+
+sound.play();
+
+index++;
+
+if(index >= animals.length){
+index = 0;
+}
+
+}
+
+showAnimal();
+
+setInterval(showAnimal,5000);
+
+</script>
+
+</body>
+</html>
